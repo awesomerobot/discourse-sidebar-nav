@@ -165,7 +165,7 @@
         li.category-drop,
         li.tag-drop {
           margin: 0;
-          flex: 1 1 auto;
+          flex: 1 1 100%;
           &:not(:first-of-type) {
             margin: .5em 0 0 0;
           }
@@ -222,10 +222,12 @@
             margin-top: -4px;
           }
         }
+
+
       }
     }
   }
-  
+
   .tags-page.staff {
     #main-outlet #list-area {
       .admin-tag {
