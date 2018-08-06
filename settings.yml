@@ -1,0 +1,6 @@
+sidebar-alignment:
+  default: left
+  type: enum
+  choices:
+    - left
+    - right
