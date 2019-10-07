@@ -1,100 +1,98 @@
-// Only applying to main topic lists over 768px wide 
+// Only applying to main topic lists over 768px wide
 @media screen and (min-width: 768px) {
   .navigation-topics,
   .categories-list,
   .tags-page,
-  body[class*="category-"]:not(.archetype-regular):not(.archetype-banner) { 
-    
+  body[class*="category-"]:not(.archetype-regular):not(.archetype-banner) {
     #main-outlet {
       padding-top: 6.8572em;
     }
-    
-    // Structuring the main grid layout 
-    
-    .container:first-of-type { 
+
+    // Structuring the main grid layout
+
+    .container:first-of-type {
       grid-area: alerts;
     }
-    
-    .container:nth-of-type(2) { 
+
+    .container:nth-of-type(2) {
       grid-area: pins;
     }
-    
+
     .list-controls {
       grid-area: nav;
     }
-    
+
     .list-container {
       grid-area: topic-list;
     }
-    
+
     #main-outlet {
       display: grid;
       grid-column-gap: 1.5em;
-      
+
       @if $sidebar-alignment == "left" {
         grid-template-columns: 2fr 10fr; // 12 column grid
-        grid-template-areas: 
-        "alerts alerts"
-        "pins pins"
-        "nav topic-list";
+        grid-template-areas:
+          "alerts alerts"
+          "pins pins"
+          "nav topic-list";
       } @else {
-        grid-template-columns:  10fr 2fr; 
-        grid-template-areas: 
-        "alerts alerts"
-        "pins pins"
-        "topic-list nav";
-        
+        grid-template-columns: 10fr 2fr;
+        grid-template-areas:
+          "alerts alerts"
+          "pins pins"
+          "topic-list nav";
       }
     }
-    
-    // Changing the layout to fit the grid 
-    
+
+    // Changing the layout to fit the grid
+
     .category-breadcrumb {
       font-size: 1.1487em;
-      .badge-wrapper.bullet .badge-category-parent-bg, 
+      .badge-wrapper.bullet .badge-category-parent-bg,
       .badge-wrapper.bullet .badge-category-bg {
         width: 10px;
         height: 10px;
       }
-      
+
       .select-kit.combo-box.category-drop .select-kit-row .badge-wrapper.box {
         font-weight: normal;
         padding: 4px 6px;
       }
     }
-    
-    .list-container { 
+
+    .list-container {
       min-width: 70%; // Don't let the topic list get too narrow
       .topic-list,
-      .category-list, { 
+      .category-list {
         th {
           padding-top: 0; // Align to top of nav
         }
       }
     }
-    .latest-topic-list .table-heading, 
+    .latest-topic-list .table-heading,
     .top-topic-list .table-heading {
       padding-top: 0;
     }
-    
+
     .list-controls {
       z-index: 100; // Above topic list content
       .container {
-        position: -webkit-sticky;  // required for Safari
-        position: sticky; 
+        position: -webkit-sticky; // required for Safari
+        position: sticky;
         top: 5.8572em; // required for sticky
       }
-      
+
       .btn {
         margin: 0;
       }
-      
+
       #create-topic {
         flex: 1 1 auto;
         order: 5;
-        margin-bottom: .5em;
+        margin-bottom: 0.5em;
       }
-      
+
       button {
         order: 6;
       }
@@ -104,43 +102,43 @@
           height: 2em;
         }
       }
-      
+
       .edit-category {
         flex: 1 1 auto;
-        margin-right: .5em;
+        margin-right: 0.5em;
       }
-      
+
       .categories-admin-dropdown {
         order: 8;
-        margin-bottom: .5em;
-        margin-left: .5em;
+        margin-bottom: 0.5em;
+        margin-left: 0.5em;
         margin-top: -1px;
         button {
-          height: 2em; 
+          height: 2em;
         }
       }
-      
+
       .nav-pills {
         display: flex;
         flex: 1 1 100%;
         flex-direction: column;
-        margin: .5em 0;
+        margin: 0.5em 0;
         li {
           margin: 0;
           &:empty {
             display: none;
           }
         }
-        &>li>a {
-          padding: .5em .714em;
+        & > li > a {
+          padding: 0.5em 0.714em;
         }
         @if $sidebar-alignment == left {
-          &>li.active>a {
+          & > li.active > a {
             &:after {
               content: "\f178";
               font-family: fontawesome;
               display: inline;
-              float: right;
+              margin-left: auto;
             }
           }
         }
@@ -150,12 +148,11 @@
           max-width: 8.5em;
         }
       }
-      
+
       .category-navigation,
       .navigation-container {
         display: flex;
         flex-wrap: wrap;
-        
       }
       ol {
         display: flex;
@@ -167,11 +164,11 @@
           margin: 0;
           flex: 1 1 100%;
           &:not(:first-of-type) {
-            margin: .5em 0 0 0;
+            margin: 0.5em 0 0 0;
           }
         }
       }
-      
+
       .select-kit .select-kit-header .caret-icon {
         &:before {
           content: "\f0d7";
@@ -179,68 +176,19 @@
       }
     }
   }
-  
-  .tags-page { // Tags page markup is a bit of a nested mess
-    #main-outlet {
-      display: block;
-      
-      #list-area {
-        display: grid;
-        grid-column-gap: 1.5em;
-        @if $sidebar-alignment == "left" {
-          grid-template-columns: 2fr 10fr; // 12 column grid
-          grid-template-areas: 
-          "alerts alerts"
-          "pins pins"
-          "nav topic-list";
-        } @else {
-          grid-template-columns:  10fr 2fr; 
-          grid-template-areas: 
-          "alerts alerts"
-          "pins pins"
-          "topic-list nav";
-        }
-        .container:first-of-type { 
-          grid-area: alerts;
-          display: flex;
-          flex-wrap: wrap;
-        }
-        .container:nth-of-type(2) { 
-          grid-area: pins;
-        }
-        .list-controls {
-          grid-area: nav;
-        }
-        .contents {
-          grid-area: topic-list;
-        }     
-        
-        .tag-notifications-button {
-          margin-bottom: 5px;
-          margin-left: .5em;
-          button {
-            margin-top: -4px;
-          }
-        }
-
-
-      }
-    }
-  }
 
   .tags-page.staff {
-    #main-outlet #list-area {
+    .list-controls {
+      #create-topic {
+        width: 100%;
+      }
       .admin-tag {
         order: 9;
-        flex: 0 1 calc(50% - .25em);
-        margin-bottom: 5px;
-        height: 2em;
-        &:nth-of-type(1) {
-          margin-right: auto;
-          
+        flex: 1 1 auto;
+        &:not(.btn-danger) {
+          margin: 0 0.5em;
         }
       }
     }
   }
 }
-
