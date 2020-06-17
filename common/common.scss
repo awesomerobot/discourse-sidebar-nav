@@ -6,9 +6,17 @@
   body[class*="category-"]:not(.archetype-regular):not(.archetype-banner) {
     #main-outlet {
       padding-top: 6.8572em;
+
+      &.wrap:before {
+        display: none;
+      }
     }
 
     // Structuring the main grid layout
+
+    #main-outlet > span:first-child {
+      grid-area: outlet;
+    }
 
     .container:first-of-type {
       grid-area: alerts;
@@ -33,12 +41,14 @@
       @if $sidebar-alignment == "left" {
         grid-template-columns: 2fr 10fr; // 12 column grid
         grid-template-areas:
+          "outlet outlet"
           "alerts alerts"
           "pins pins"
           "nav topic-list";
       } @else {
         grid-template-columns: 10fr 2fr;
         grid-template-areas:
+          "outlet outlet"
           "alerts alerts"
           "pins pins"
           "topic-list nav";
