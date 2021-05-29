@@ -65,7 +65,12 @@
     // Changing the layout to fit the grid
 
     .category-breadcrumb {
-      font-size: 1.1487em;
+      > li {
+        height: auto;
+      }
+      .select-kit-header {
+        margin: 0;
+      }
       .badge-wrapper.bullet .badge-category-parent-bg,
       .badge-wrapper.bullet .badge-category-bg {
         width: 10px;
@@ -156,6 +161,7 @@
           }
         }
         & > li > a {
+          width: 100%;
           padding: 0.5em 0.714em;
         }
         @if $sidebar-alignment == left {
